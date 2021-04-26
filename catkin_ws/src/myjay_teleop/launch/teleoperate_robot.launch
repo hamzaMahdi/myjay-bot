@@ -1,0 +1,14 @@
+<launch>
+  <arg name="collect_data" default="true"/>
+  <arg name="mode" default="udp_teleop.py" />
+
+  <param name="collect_data" type="boolean" value="$(arg collect_data)"/>
+
+  <include file="$(find myjay_core)/launch/start_robot.launch" />
+  <!-- <include file="$(find myjay_cameras)/launch/start_camera.launch" /> -->
+  <include file="$(find myjay_teleop)/launch/distort_teleop.launch" />
+
+  
+  <node name="receive_teleop"  pkg="myjay_teleop"  type="$(arg mode)" output="screen"></node>
+  <node name="receive_supervisor_teleop"  pkg="myjay_teleop"  type="supervisor_udp_teleop.py" output="screen"></node>
+  </launch>

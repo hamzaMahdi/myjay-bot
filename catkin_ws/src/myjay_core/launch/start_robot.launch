@@ -1,0 +1,27 @@
+<launch>
+  <node name="myjay_driver"  pkg="myjay_core"  type="myjay_driver.py" output="screen">
+  </node>
+  <node name="imu"  pkg="myjay_core"  type="imu.py" output="screen">
+  </node>
+  <node name="led_driver"  pkg="myjay_core"  type="led_driver.py" output="screen">
+  </node>
+  <node name="serial_node"  pkg="rosserial_python"  type="serial_node.py" output="screen">
+  <param name="port"         type="string" value="/dev/ttyUSB0"/>  
+  </node>
+
+
+  <node pkg="tf" type="static_transform_publisher" name="map_to_odom"
+    args="1 0 0 0 0 0  /map /odom 100" />
+  <node pkg="tf" type="static_transform_publisher" name="baselink_to_imu"
+    args="0 0 0 0 0 0  /base_link /imu 100" />
+    <!-- state machine launch -->
+    <!-- <include file="$(find myjay_executive)/launch/ball_state_machine.launch" /> -->
+
+
+    
+    <!-- Odom-IMU Extended Kalman Filter-->
+    <!-- <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization_odom" clear_params="true"> 
+        <rosparam command="load" file="$(find myjay_core)/param/ekf/robot_localization_odom.yaml" />
+    </node> -->
+
+</launch>

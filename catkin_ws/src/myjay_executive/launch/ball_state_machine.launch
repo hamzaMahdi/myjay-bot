@@ -1,0 +1,4 @@
+<launch>
+    <node name="ball_state_machine"  pkg="myjay_executive"  type="ball_states.py" output="screen">
+    </node>
+</launch>

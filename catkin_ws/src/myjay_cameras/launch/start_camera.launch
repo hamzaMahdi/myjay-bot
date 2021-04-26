@@ -1,0 +1,4 @@
+<launch>
+  <node name="camera_streamer"  pkg="myjay_cameras"  type="start_camera.py" output="screen">
+  </node>
+ </launch>

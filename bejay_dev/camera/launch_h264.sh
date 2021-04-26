@@ -1,0 +1,1 @@
+nvarguscamerasrc sensor_id=0  ! nvvidconv ! omxh264enc ! h264parse ! video/x-h264,stream-format=byte-stream,profile=constrained-baseline,alignment=au ! queue

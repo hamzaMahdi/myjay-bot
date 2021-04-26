@@ -1,0 +1,10 @@
+<launch>
+  <arg name="emotion" default="0" />
+  <node name="led_driver"  pkg="led_emotion_experiment"  type="emotions.py" output="screen">
+    <param name="emotion"         type="int" value="$(arg emotion)"/> 
+  </node>
+
+  <node name="serial_node"  pkg="rosserial_python"  type="serial_node.py" output="screen">
+    <param name="port"         type="string" value="/dev/ttyACM0"/>  
+  </node>
+</launch>

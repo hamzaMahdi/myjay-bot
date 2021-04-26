@@ -1,0 +1,4 @@
+build/
+*.pyc
+catkin_ws/build
+catkin_ws/devel

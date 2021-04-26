@@ -1,0 +1,22 @@
+<launch>
+    <arg name="goal_deviation" default="0"/> <!--deviation in x-y axis forces (percentage)-->
+    <arg name="noise_level" default="0" /> <!-- rad/sec deviation -->
+    <arg name="force" default="1" />
+    <arg name="time_delay" default="0" /><!--response delay in samples-->
+    <arg name="trial" default="2"/>
+    <arg name="user" default="test"/>
+
+
+    <param name="goal_deviation" type="double" value="$(arg goal_deviation)"/>
+    <param name="noise_level" type="double" value="$(arg noise_level)"/>
+    <param name="force" type="double" value="$(arg force)"/>
+    <param name="time_delay" type="int" value="$(arg time_delay)"/>
+
+    <node name="distort_teleop"  pkg="myjay_teleop"  type="distort_teleop.py" output="screen">
+    </node>
+
+    <!-- Record a bag for analysis purposes -->
+	<arg name="bag_name" default='$(arg user)_trial_$(arg trial)_gd_$(arg goal_deviation)_n_$(arg noise_level)_f_$(arg force)_d_$(arg time_delay)'/>
+	<arg name="rosbag_args" default='-O $(find myjay_core)/data/$(arg bag_name).bag mpu_imu encoder_odom camera_cmd_vel supervisor_cmd_vel user_cmd_vel camera_cmd_vel /distorted/cmd_vel'/>
+	<!-- <node pkg="rosbag" type="record" name="rosbag_record" args="$(arg rosbag_args)" output="screen"/> -->
+</launch>

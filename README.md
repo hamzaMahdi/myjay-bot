@@ -2,7 +2,7 @@
 
 This is the software/mechanical design repository for MyJay (formerly known as BeJay).
 
-This is an ongoing project and is being updated regularly. Code will be refactored and cleaned up eventually. For now, you can use my thesis (https://uwspace.uwaterloo.ca/handle/10012/17052) for technical details and for detailed Bill of Materials (BOM) if you'd like to build one yourself. If you end up using it, please cite it as:
+This is an ongoing project and is being updated irregularly. Code will be refactored and cleaned up eventually. For now, you can use my thesis (https://uwspace.uwaterloo.ca/handle/10012/17052) for technical details and for detailed Bill of Materials (BOM) if you'd like to build one yourself. If you end up using it, please cite it as:
 ```
 @mastersthesis{mahdi2021developing,
   title={Developing a Semi-autonomous Robot to Engage Children with Special Needs and Their Peers in Robot-Assisted Play},
